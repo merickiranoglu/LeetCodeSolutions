@@ -8,7 +8,7 @@ namespace LeetCodeSolutions
 {
     public class TwoSumSolution
     {
-        
+
         public static int[] TwoSum(int[] nums, int target)
         {
             int[] solution = { 0, 0 };
@@ -19,22 +19,15 @@ namespace LeetCodeSolutions
 
                 if (solution[0] > 9) { continue; }
 
-                for (int j = 0; j < nums.Length; j++)
+                var remainingValue = target - solution[0];
+                if (nums.Contains(remainingValue))
                 {
-                    solution[1] = nums[j];
-
-                    if (solution[0] == solution[1]) { continue; }
-
-                    if (solution[0] + solution[1] == 9)
-                    {
-                        int[] indices = { i, j };
-                        return indices;
-                    }
-                    else
-                    {
-                        continue;
-                    }
+                    //solution[1] = remainingValue;
+                    var j = Array.IndexOf(nums, remainingValue);
+                    int[] indices = { i, j };
+                    return indices;
                 }
+                else { continue; }
             }
             return solution;
         }
