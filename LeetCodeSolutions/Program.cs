@@ -42,8 +42,8 @@ namespace LeetCodeSolutions
         private static void TestTwoSum()
         {
             Console.WriteLine("Test of Two Sum Solution is started.");
-            int[] nums = { 2, 7, 11, 15 };
-            int target = 9;
+            int[] nums = { 3, 3 };
+            int target = 6;
 
             string testArray = "Test Array: {";
             for (int i = 0; i < nums.Length-1 ; i++)

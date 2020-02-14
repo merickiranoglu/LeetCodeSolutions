@@ -11,25 +11,19 @@ namespace LeetCodeSolutions
 
         public static int[] TwoSum(int[] nums, int target)
         {
-            int[] solution = { 0, 0 };
-
             for (int i = 0; i < nums.Length; i++)
             {
-                solution[0] = nums[i];
+                var remainingValue = target - nums[i];
 
-                if (solution[0] > 9) { continue; }
-
-                var remainingValue = target - solution[0];
                 if (nums.Contains(remainingValue))
                 {
-                    //solution[1] = remainingValue;
-                    var j = Array.IndexOf(nums, remainingValue);
-                    int[] indices = { i, j };
-                    return indices;
+                    for (int j = i + 1; j < nums.Length; j++)
+                    {
+                        if (nums[j] == remainingValue) { return new[] { i, j }; }
+                    }
                 }
-                else { continue; }
             }
-            return solution;
+            return null;
         }
     }
 
